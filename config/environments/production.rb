@@ -11,6 +11,8 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+  config.action_mailer.delivery_method= :smtp
+  config.action_mailer.default_url_options = { host: 'hodo-photo-app.herokuapp.com/', protocol: 'https' }
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -87,11 +89,11 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
-
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
   # Do not dump schema after migrations.

@@ -5,6 +5,10 @@ ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
+gem 'jquery-rails', '~> 4.4'
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views', '~> 1.1'
 # Use sqlite3 as the database for Active Record
 
 # Use Puma as the app server

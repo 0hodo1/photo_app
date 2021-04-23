@@ -10,7 +10,8 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-
+  config.action_mailer.delivery_method= :test
+  config.action_mailer.default_url_options = { host: 'http://localhost:3000/'}
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -56,8 +57,9 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
-
+  config.assets.debug = false
+  config.assets.unknown_asset_fallback = true
+  config.assets.check_precompiled_asset = false
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
